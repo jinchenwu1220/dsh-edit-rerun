@@ -86,6 +86,20 @@ ln -sfn ~/dsh-edit-rerun ~/.dsh/profiles/desktop/node_modules/dsh-edit-rerun
 | 会话日志格式大版本升级 | 事件名假设可能失效，需要改 `log.js` 的 `turnsFromEvents` |
 | 自动发送 | 不做，只预填草稿 |
 
+## 和 dsh-plugin-message-edit 的区别
+
+社区里已有一个更完整的同类插件 [`dsh-plugin-message-edit`](https://github.com/SpookySandwich/dsh-plugin-message-edit)（30★，npm 月下载 1k+）。两者定位不同，按需选：
+
+| | 本插件 dsh-edit-rerun | dsh-plugin-message-edit |
+|---|---|---|
+| 分支怎么切 | 官方 `sessions.fork({ atSeq })` | 自己搬 seed，往子会话写可忽略事件 `message-tree/version`，手工建 agent、清空 inherited inbox |
+| 宿主接触面 | 只读会话日志 + `webServer` / `systemPrompt` | `sessions` / `agents` / `sessionPersistence` 等内部服务 |
+| 发送 | **只预填草稿，你自己按回车** | 创建分支后**自动提交**改后的 prompt |
+| 版本树 / 版本环 | 无 | 有（树状图 + 气泡上的 `‹ n/m ›`） |
+| 依赖与产物 | 零依赖、无构建产物，三个 JS 文件 | 有构建产物、测试、发布流水线 |
+
+一句话：要版本树和自动提交，用那个；要一个**绝不往会话里写东西、也不替你按发送**的最小实现，用这个。
+
 ## 结构
 
 | 文件 | 作用 |
