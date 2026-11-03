@@ -1,0 +1,6 @@
+# dsh-edit-rerun bundle patch: one row, resolved by package name from the profile.
+# Host half (exports ".") serves GET /dsh-edit-rerun/turns; the browser half
+# (exports "./client") adds the composer button declared in package.json.
+- insert:
+    - id: dsh-edit-rerun
+      name: 'dsh-edit-rerun'

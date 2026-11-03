@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Edit & Re-run Prompt",
+    "description": "Lists every prompt of the open conversation, lets you edit one, and re-runs it in a forked branch with the edited text pre-filled in the composer."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "dsh-edit-rerun",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness Web GUI plugin: edit an earlier prompt of the open conversation and re-run it in a forked branch, with the edited text pre-filled in the composer.",
+  "type": "module",
+  "license": "MIT",
+  "author": "jinchenwu1220",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "prompt",
+    "rerun",
+    "fork",
+    "branch",
+    "rewind",
+    "web-ui"
+  ],
+  "homepage": "https://github.com/jinchenwu1220/dsh-edit-rerun#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinchenwu1220/dsh-edit-rerun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jinchenwu1220/dsh-edit-rerun/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "log.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check log.js && node --check client.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}
