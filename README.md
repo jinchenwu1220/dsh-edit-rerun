@@ -1,5 +1,9 @@
 # dsh-edit-rerun
 
+[![npm](https://img.shields.io/npm/v/dsh-edit-rerun?logo=npm&color=0891b2)](https://www.npmjs.com/package/dsh-edit-rerun)
+[![license](https://img.shields.io/badge/license-MIT-16a34a)](LICENSE)
+[![release](https://img.shields.io/github/v/release/jinchenwu1220/dsh-edit-rerun?color=7c3aed)](https://github.com/jinchenwu1220/dsh-edit-rerun/releases)
+
 **编辑历史提示词并重跑** —— DeepSeek Harness（DSH）Web GUI 插件。
 
 输入框右侧多一个回环箭头按钮：它列出当前会话里**每一条真实的用户提示词**，选一条改字，
@@ -27,7 +31,17 @@ fork / resume / replay / 压缩投影全部由它派生。就地改写已发生�
 
 前置：DSH 0.2.x（Web GUI / 桌面版），Node ≥ 22。
 
-### 方式一：GUI 里让 agent 装（推荐）
+### 方式一：npm（已发布）
+
+```bash
+dsh plugin --profile desktop add dsh-edit-rerun
+```
+
+或从 [v1.0.0 Release](https://github.com/jinchenwu1220/dsh-edit-rerun/releases/tag/v1.0.0) 下载
+`dsh-edit-rerun-1.0.0.tgz` 后在本地安装。装完同样要把 `dsh-edit-rerun` 加进
+`dsh.profile.bundles`（或在 GUI 里让 agent 用 `plugin_manager` 的 `install_bundle` 一次装好）。
+
+### 方式二：GUI 里让 agent 装
 
 ```text
 克隆 https://github.com/jinchenwu1220/dsh-edit-rerun 到本地，然后用 plugin_manager
@@ -36,7 +50,7 @@ fork / resume / replay / 压缩投影全部由它派生。就地改写已发生�
 
 `install_bundle` 会同时完成「装包」和「把 bundle 加进 `dsh.profile.bundles`」两件事。
 
-### 方式二：命令行手装
+### 方式三：命令行从源码装
 
 ```bash
 git clone https://github.com/jinchenwu1220/dsh-edit-rerun ~/dsh-edit-rerun
@@ -55,7 +69,7 @@ dsh plugin --profile desktop add ~/dsh-edit-rerun
 
 重启 DSH。
 
-### 方式三：直接软链（开发用）
+### 方式四：直接软链（开发用）
 
 ```bash
 ln -sfn ~/dsh-edit-rerun ~/.dsh/profiles/desktop/node_modules/dsh-edit-rerun
