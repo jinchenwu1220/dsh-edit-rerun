@@ -25,7 +25,8 @@
     "url": "https://github.com/jinchenwu1220/dsh-edit-rerun/issues"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=22",
+    "dsh": ">=0.2.1-rc.5 <0.3.0-0"
   },
   "exports": {
     "./package.json": "./package.json",
